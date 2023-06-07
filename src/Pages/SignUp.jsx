@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "./Shared/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -38,7 +39,7 @@ const SignUp = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Account created successfully',
                         showConfirmButton: false,
                         timer: 1500
                       })
@@ -167,6 +168,7 @@ const SignUp = () => {
               </button>
             </div>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
