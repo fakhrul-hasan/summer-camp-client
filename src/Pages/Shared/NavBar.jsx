@@ -31,13 +31,8 @@ const NavBar = () => {
           <img src={user?.photoURL} />
         </div>
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10">
+        <li><a>Profile</a></li>
         <li><a>Settings</a></li>
         <li onClick={handleLogOut}><a>Logout</a></li>
       </ul>

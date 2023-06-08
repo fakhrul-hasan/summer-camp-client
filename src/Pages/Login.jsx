@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./Shared/SocialLogin";
 
 const Login = () => {
+  const navigate = useNavigate();
     const {login} = useContext(AuthContext);
     const {
         register,
@@ -26,6 +27,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              navigate('/');
         })
       }
   return (
