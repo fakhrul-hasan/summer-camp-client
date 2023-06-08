@@ -1,23 +1,22 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const ManageUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
     const {data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async ()=>{
-            const res = await fetch('http://localhost:5000/users')
-            return res.json();
+            const res = await axiosSecure.get('/users')
+            return res.data;
         }
     })
     const handleMakeRole=(user, role)=>{
-      fetch(`http://localhost:5000/users/admin/${user._id}?role=${role}`,{
-        method: 'PATCH'
-      })
-      .then(res=>res.json())
+      axiosSecure.patch(`/users/${user._id}?role=${role}`)
       .then(data=>{
         console.log(data);
-        if(data.modifiedCount){
+        if(data.data.modifiedCount > 0){
           refetch();
           Swal.fire({
             position: 'top-end',

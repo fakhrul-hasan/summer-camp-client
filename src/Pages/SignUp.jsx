@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./Shared/SocialLogin";
 
 const SignUp = () => {
+  const location = useLocation();
+  const from = location.state?.state?.from?.pathname || '/';
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -43,7 +45,7 @@ const SignUp = () => {
                         showConfirmButton: false,
                         timer: 1500
                       })
-                      navigate('/');
+                      navigate(from, {replace: true});
                 }
             })
         })

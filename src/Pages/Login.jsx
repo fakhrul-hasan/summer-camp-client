@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./Shared/SocialLogin";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
     const {login} = useContext(AuthContext);
     const {
         register,
@@ -27,7 +29,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
-              navigate('/');
+              navigate(from, {replace: true});
         })
       }
   return (
@@ -76,7 +78,7 @@ const Login = () => {
                     Forgot password?
                   </p>
                 </Link> */}
-                <Link to="/signUp">
+                <Link to="/signUp" state={location}>
                   <p className="label-text-alt link link-hover">
                     New Here? Register First
                   </p>
