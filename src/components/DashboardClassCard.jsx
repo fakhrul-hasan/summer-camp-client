@@ -1,7 +1,7 @@
 import React from "react";
 
 const DashboardClassCard = ({cls, handleStatus}) => {
-    const {className, image, instructorName, instructorEmail, availableSeats, price, status} = cls;
+  const {className, image, instructorName, instructorEmail, availableSeats, price, status} = cls;
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure>
@@ -18,8 +18,8 @@ const DashboardClassCard = ({cls, handleStatus}) => {
         <p><span className="font-semibold">Price: </span>${price}</p>
         <p><span className="font-semibold">Status: </span>{status ? status : 'Pending'}</p>
         <div className="card-actions justify-between">
-          <button onClick={()=>handleStatus(cls, 'Approve')} className="btn btn-success" disabled={cls?.status === 'Approve' ? true:false}>Approve</button>
-          <button onClick={()=>handleStatus(cls, 'Deny')} className="btn btn-error" disabled={cls?.status === 'Deny' ? true:false}>Deny</button>
+          <button onClick={()=>handleStatus(cls, 'Approve')} className="btn btn-success" disabled={cls?.status === 'Approved' ? true:false}>Approve</button>
+          <button onClick={()=>handleStatus(cls, 'Deny')} className="btn btn-error" disabled={cls?.status === 'Denied' ? true:false}>Deny</button>
           <button className="btn btn-info">Feedback</button>
         </div>
       </div>

@@ -1,16 +1,12 @@
+import { useLocation } from "react-router-dom";
+import FooterDiv from "./FooterDiv";
+import ClassFooterDiv from "./ClassFooterDiv";
+
 const Footer = () => {
+  const location = useLocation();
   return (
     <>
-      <footer className="footer p-10 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white gap-0">
-        <div className="grid-cols-1">
-          <h2 className="text-3xl font-bold">Ready to Make a Change?</h2>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus totam, ab minima error quibusdam voluptates rerum et, velit, asperiores ipsam numquam? Deleniti odio corporis culpa!</p>
-        </div>
-        <div className="grid-cols-1">
-        <button className="uppercase border-2 border-white px-8 py-4 text-lg font-semibold rounded-3xl">become a member</button>
-        <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">take a class</button>
-        </div>
-      </footer>
+     {location.pathname == '/classes' ? <ClassFooterDiv/> : <FooterDiv/>}
       <footer className="footer px-10 py-4 border-t bg-black text-gray-300 border-base-300">
         <div className="items-center grid-flow-col">
           <p>

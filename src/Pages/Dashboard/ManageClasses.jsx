@@ -9,7 +9,7 @@ const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axiosSecure.get("classes");
+      const res = await axiosSecure.get("/addedClasses");
       return res.data;
     },
   });
@@ -25,7 +25,7 @@ const ManageClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .patch(`/classes/${cls._id}?status=${status}`)
+          .patch(`/addedClasses/${cls._id}?status=${status}`)
           .then((data) => {
             if (data.data.modifiedCount > 0) {
               refetch();
