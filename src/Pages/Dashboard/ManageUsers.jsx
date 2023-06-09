@@ -32,11 +32,11 @@ const ManageUsers = () => {
     }
     return (
         <div>
-            <h2 className='text-4xl font-bold text-[#44d89e]'>All Users</h2>
+            <h2 className='text-4xl font-bold text-[#44d89e] text-center mb-4'>All Users</h2>
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className='bg-base-300'>
       <tr>
         <th>
           #
