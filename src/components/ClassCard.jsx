@@ -3,6 +3,8 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import useGetRole from "../hooks/useGetRole";
+import useSelectedClass from "../hooks/useSelectedClass";
 
 const ClassCard = ({ cls }) => {
     const location = useLocation();
@@ -11,14 +13,15 @@ const ClassCard = ({ cls }) => {
     className,
     image,
     instructorName,
-    instructorEmail,
     availableSeats,
     price,
     _id
   } = cls;
   const {user} = useContext(AuthContext);
+  const [role] = useGetRole();
   const [axiosSecure] = useAxiosSecure();
-  const [fav, setFav] = useState(false);
+  const [fav, setFav] = useState(false)
+  const [classes] = useSelectedClass();
   
   const handleClass=cls=>{
     if(!user){
@@ -40,9 +43,13 @@ const ClassCard = ({ cls }) => {
     axiosSecure.post('/selectedClasses', selectedClass)
     .then(data=>{
       if(data.data.insertedId){
-        setFav(!fav);
+        setFav(true);
       }
     })
+  }
+  const isClassSelected=id=>{
+    const existingClass = classes.find(c=> c.classId == id);
+    return existingClass;
   }
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl">
@@ -67,7 +74,7 @@ const ClassCard = ({ cls }) => {
         </div>
       </div>
       <div className="flex items-center p-8">
-        <button onClick={()=>handleClass(cls)} className="btn btn-primary" disabled={fav ? true:false}>Select</button>
+        <button onClick={()=>handleClass(cls)} className="btn btn-primary" disabled={isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
       </div>
     </div>
   );

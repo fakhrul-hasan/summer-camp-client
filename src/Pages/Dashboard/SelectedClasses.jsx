@@ -1,23 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import SectionTitle from "../../components/SectionTitle";
-import { useQuery } from "react-query";
-import { AuthContext } from "../../Providers/AuthProvider";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useSelectedClass from "../../hooks/useSelectedClass";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const SelectedClasses = () => {
-  const { user, loading } = useContext(AuthContext);
-  const [axiosSecure] = useAxiosSecure();
-  const { data: classes = [], refetch } = useQuery({
-    queryKey: ["classes", user?.email],
-    enabled: !loading && Boolean(user?.email),
-    queryFn: async () => {
-      const res = await axiosSecure.get(
-        `/selectedClasses?email=${user?.email}`
-      );
-      return res.data;
-    },
-  });
+    const [axiosSecure] = useAxiosSecure();
+    const [classes, refetch] = useSelectedClass();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
