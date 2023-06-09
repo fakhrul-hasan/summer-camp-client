@@ -3,7 +3,7 @@ import img from '../assets/about-img.png';
 
 const About = () => {
     return (
-        <div className='flex p-16 gap-8 w-full'>
+        <div className='flex p-16 gap-8 w-full h-screen'>
             <div className='w-1/2 space-y-8'>
                 <h5 className='text-gray-300 text-lg uppercase font-semibold'>about us</h5>
                 <h3 className='text-[#25efcb] text-4xl font-bold'>High Quality & Professional Yoga Club</h3>

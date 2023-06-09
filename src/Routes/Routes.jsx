@@ -8,7 +8,6 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import InstructorHome from "../Pages/Dashboard/InstructorHome";
-import AddClass from "../Pages/AddClass";
 import ManageClasses from "../Pages/Dashboard/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import AdminRoute from "./AdminRoute";
@@ -17,6 +16,7 @@ import MyClasses from "../Pages/Dashboard/MyClasses";
 import StudentRoute from "./StudentRoute";
 import SelectedClasses from "../Pages/Dashboard/SelectedClasses";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
+import AddClass from "../Pages/Dashboard/AddClass";
 
   const router = createBrowserRouter([
     {

@@ -7,6 +7,7 @@ import yoga2 from '../../src/assets/yoga02.png';
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 import About from "./About";
+import ClassSection from "./ClassSection";
 
 const Home = () => {
     return (
@@ -46,7 +47,10 @@ const Home = () => {
             </div>
         </SwiperSlide>
       </Swiper>
+      {/* about section */}
       <About></About>
+        {/* class section */}
+        <ClassSection></ClassSection>
         </div>
     );
 };

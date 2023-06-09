@@ -1,19 +1,51 @@
 import React, { useContext } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { AuthContext } from "../Providers/AuthProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
+const img_hosting_token = import.meta.env.VITE_Img_Upload_Token;
 
 const AddClass = () => {
+  const [axiosSecure] = useAxiosSecure();
   const {user} = useContext(AuthContext);
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
   const {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     const file = data.classImage;
-    console.log(file);
+    const formData = new FormData();
+    formData.append('image', data.classImage);
+    fetch(img_hosting_url,{
+      method: 'POST',
+      body: formData
+    })
+    .then(res=>res.json())
+    .then(imgResponse=>{
+      if(imgResponse.success){
+        const imgURL = imgResponse.data.display_url;
+        const {className, availableSeats, instructorEmail, instructorName, price} = data;
+        const newItem = {className, image: imgURL, availableSeats: parseInt(availableSeats), instructorEmail, instructorName, price: parseFloat(price)};
+        axiosSecure.post('/classes', newItem)
+        .then(data=>{
+          if(data.data.insertedId){
+            reset();
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Class added successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        })
+      }
+    })
   };
   return (
     <div>
@@ -56,6 +88,7 @@ const AddClass = () => {
               defaultValue={user?.displayName}
               className="input input-bordered input-accent w-full"
               readOnly={true}
+              {...register("instructorName")}
             />
           </div>
           <div className="w-1/2">
@@ -67,6 +100,7 @@ const AddClass = () => {
               defaultValue={user?.email}
               className="input input-bordered input-accent w-full"
               readOnly={true}
+              {...register("instructorEmail")}
             />
           </div>
         </div>
@@ -79,16 +113,18 @@ const AddClass = () => {
               type="number"
               placeholder="available seats"
               className="input input-bordered input-accent w-full"
+              {...register("availableSeats", { required: true })}
             />
           </div>
           <div className="w-1/2">
             <label className="label">
-              <span className="label-text">Price</span>
+              <span className="label-text">Price in (USD)</span>
             </label>
             <input
               type="text"
               placeholder="price here"
               className="input input-bordered input-accent w-full"
+              {...register("price", { required: true })}
             />
           </div>
         </div>
