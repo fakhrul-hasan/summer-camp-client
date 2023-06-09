@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
+  const {user} = useContext(AuthContext);
     const {data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async ()=>{
@@ -47,23 +49,23 @@ const ManageUsers = () => {
     </thead>
     <tbody>
      {
-        users.map((user, index)=><tr key={user._id}>
+        users.map((member, index)=><tr key={member._id}>
             <th>
               {index +1}
             </th>
             <td>
                 <div>
-                  <div className="font-bold">{user?.name}</div>
+                  <div className="font-bold">{member?.name}</div>
                 </div>
             </td>
             <td>
-              {user?.email}
+              {member?.email}
             </td>
-            <td>{user?.role ? user?.role : 'Student'}</td>
+            <td>{member?.role ? member?.role : 'Student'}</td>
             <td>
               <div className='flex flex-col gap-1'>
-              <button onClick={()=>handleMakeRole(user, 'Instructor')} className="btn btn-accent btn-xs" disabled={user?.role === 'Instructor' ? true:false}>Make Instructor</button>
-              <button onClick={()=>handleMakeRole(user, 'Admin')} className="btn btn-success hover:btn-accent btn-xs" disabled={user?.role === 'Admin' ? true:false}>Make Admin</button>
+              <button onClick={()=>handleMakeRole(member, 'Instructor')} className="btn btn-accent btn-xs" disabled={user?.email === member?.email || member?.role === 'Instructor' ? true:false}>Make Instructor</button>
+              <button onClick={()=>handleMakeRole(member, 'Admin')} className="btn btn-success hover:btn-accent btn-xs" disabled={user?.email === member?.email || member?.role === 'Admin' ? true:false}>Make Admin</button>
               </div>
             </td>
           </tr>)

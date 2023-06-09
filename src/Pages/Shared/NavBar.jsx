@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useGetRole from "../../hooks/useGetRole";
 
 const NavBar = () => {
   const {user, logOut} = useContext(AuthContext);
+  const [role] = useGetRole();
   const navigate = useNavigate();
   const handleLogOut=()=>{
     logOut()
@@ -32,7 +34,13 @@ const NavBar = () => {
         </div>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10">
-        <li><a>Profile</a></li>
+          <p>
+            Signed in as {role}<br />
+            <span className="font-semibold">{user?.email}</span>
+          </p>
+        <li>
+          <a>Profile</a>
+          </li>
         <li><a>Settings</a></li>
         <li onClick={handleLogOut}><a>Logout</a></li>
       </ul>

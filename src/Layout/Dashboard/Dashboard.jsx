@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { SiGoogleclassroom } from "react-icons/si";
-import { FaUsersCog } from "react-icons/fa";
+import { FaUsersCog, FaHome } from "react-icons/fa";
 import useGetRole from "../../hooks/useGetRole";
 
 const Dashboard = () => {
@@ -41,28 +41,18 @@ const Dashboard = () => {
           )}
           {role === "Instructor" && (
             <>
-              <Link to="/dashboard/addClass">
-                <li className="text-lg font-semibold">Add a Class</li>
-              </Link>
-              <Link to="/dashboard/myClasses">
-                <li className="text-lg font-semibold">My Classes</li>
-              </Link>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/addClass">Add a Class</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/myClasses">My Classes</NavLink></li>
             </>
           )}
           {role !== "Instructor" && role !== "Admin" && (
             <>
-              <Link to="/dashboard/selectedClass">
-                <li className="text-lg font-semibold">My Selected Classes</li>
-              </Link>
-              <Link to="/dashboard/enrolledClass">
-                <li className="text-lg font-semibold">My Enrolled Classes</li>
-              </Link>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/selectedClass">My Selected Classes</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/enrolledClass">My Enrolled Classes</NavLink></li>
             </>
           )}
           <div className="divider"></div>
-          <Link to="/">
-            <li className="text-lg font-semibold">Home</li>
-          </Link>
+            <li className="text-lg font-semibold"><NavLink to="/"><FaHome/>Home</NavLink></li>
         </ul>
       </div>
     </div>
