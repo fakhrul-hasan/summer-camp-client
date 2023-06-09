@@ -24,7 +24,9 @@ const NavBar = () => {
       <Link className="me-4" to='/'>Home</Link>
       <Link className="me-4" to='/instructors'>Instructors</Link>
       <Link className="me-4" to='/classes'>Classes</Link>
-      <Link className="me-4" to='dashboard'>Dashboard</Link>
+      {
+        user && <Link className="me-4" to='dashboard'>Dashboard</Link>
+      }
     </div>
     {
       user ? <div className="dropdown dropdown-end">
