@@ -3,10 +3,12 @@ import SectionTitle from "../../components/SectionTitle";
 import Swal from "sweetalert2";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
     const [axiosSecure] = useAxiosSecure();
     const [classes, refetch] = useSelectedClass();
+    const total = classes.reduce((sum, cls)=> cls.price + sum, 0);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -42,7 +44,9 @@ const SelectedClasses = () => {
               <th>Price</th>
               <th>Action</th>
               <th>
-                <button className="btn btn-warning btn-sm" disabled={classes.length > 0 ? false:true}>pay</button>
+                <Link to='/dashboard/payment'>
+                <button className="btn btn-warning btn-sm" disabled={classes.length > 0 ? false:true}>pay ${total}</button>
+                </Link>
               </th>
             </tr>
           </thead>

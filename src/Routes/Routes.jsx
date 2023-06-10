@@ -18,6 +18,7 @@ import SelectedClasses from "../Pages/Dashboard/SelectedClasses";
 import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
 import AddClass from "../Pages/Dashboard/AddClass";
 import Classes from "../Pages/Classes";
+import Payment from "../Pages/Dashboard/Payment";
 
   const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ import Classes from "../Pages/Classes";
       ]
     },
     {
-      path: '/dashboard',
+      path: 'dashboard',
       element: <Dashboard></Dashboard>,
       errorElement: <ErrorPage></ErrorPage>,
       children:[
@@ -54,28 +55,32 @@ import Classes from "../Pages/Classes";
           element: <InstructorHome></InstructorHome>
         },
         {
-          path: '/dashboard/addClass',
+          path: 'addClass',
           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
         },
         {
-          path: '/dashboard/myClasses',
+          path: 'myClasses',
           element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
         },
         {
-          path: '/dashboard/manageClasses',
+          path: 'manageClasses',
           element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
         {
-          path: '/dashboard/manageUsers',
+          path: 'manageUsers',
           element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
-          path: '/dashboard/selectedClass',
+          path: 'selectedClass',
           element: <StudentRoute><SelectedClasses></SelectedClasses></StudentRoute>
         },
         {
-          path: '/dashboard/enrolledClass',
+          path: 'enrolledClass',
           element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
+        },
+        {
+          path: 'payment',
+          element: <StudentRoute><Payment></Payment></StudentRoute>
         }
       ]
     }
