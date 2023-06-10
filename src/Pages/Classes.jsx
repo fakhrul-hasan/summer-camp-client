@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
 import ClassCard from '../components/ClassCard';
@@ -16,7 +16,7 @@ const Classes = () => {
       </div>
       <section className='p-16'>
       <SectionTitle subHeading='our classes' heading='Join A Class Today!'></SectionTitle>
-        <div className='mt-4'>
+        <div className='mt-4 space-y-4'>
             {
                 classes.map(cls=><ClassCard key={cls._id} cls={cls}></ClassCard>)
             }

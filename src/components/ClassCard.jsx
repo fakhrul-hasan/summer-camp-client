@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useGetRole from "../hooks/useGetRole";
 import useSelectedClass from "../hooks/useSelectedClass";
 
 const ClassCard = ({ cls }) => {
-    const location = useLocation();
     const navigate = useNavigate();
   const {
     className,
@@ -15,7 +14,8 @@ const ClassCard = ({ cls }) => {
     instructorName,
     availableSeats,
     price,
-    _id
+    _id,
+    enrolledStudents
   } = cls;
   const {user} = useContext(AuthContext);
   const [role] = useGetRole();
@@ -51,8 +51,17 @@ const ClassCard = ({ cls }) => {
     const existingClass = classes.find(c=> c.classId == id);
     return existingClass;
   }
+  // const isClassEnrolled ={
+  //   if(enrolledStudents){
+  //     const isClassEnrolled=()=>{
+  //       const existingClass = enrolledStudents?.find(user?.email);
+  //       return existingClass;
+  //     }
+  //     return isClassEnrolled;
+  //   }
+  // } 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl">
+    <div className={(enrolledStudents?.length > 0) && (availableSeats - enrolledStudents?.length == 0) ? `bg-red-300 card lg:card-side shadow-xl` : `bg-base-100 card lg:card-side shadow-xl`}>
       <figure className="p-8">
         <img src={image} alt="Album" />
       </figure>
@@ -65,7 +74,7 @@ const ClassCard = ({ cls }) => {
         <div className="flex">
           <p>
             <span className="font-semibold">Available Seats: </span>
-            {availableSeats}
+            {availableSeats - enrolledStudents?.length}
           </p>
           <p>
             <span className="font-semibold">Price: </span>
@@ -74,7 +83,7 @@ const ClassCard = ({ cls }) => {
         </div>
       </div>
       <div className="flex items-center p-8">
-        <button onClick={()=>handleClass(cls)} className="btn btn-primary" disabled={isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
+        <button onClick={()=>handleClass(cls)} className="btn btn-primary" disabled={(availableSeats - enrolledStudents?.length == 0) || isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
       </div>
     </div>
   );
