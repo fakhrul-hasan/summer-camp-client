@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../Providers/AuthProvider";
+import SectionTitle from "../../components/SectionTitle";
 const EnrolledClasses = () => {
   const [data, setData] = useState();
   const [axiosSecure] = useAxiosSecure();
@@ -10,16 +11,17 @@ const EnrolledClasses = () => {
   .then((res) => {
     setData(res.data);
     setLoading(false);
-    // console.log(data);
   });
   if (loading) {
       return <span className="loading loading-bars loading-md"></span>;
     }
   return (
-    <div className="overflow-x-auto">
+    <>
+    <SectionTitle subHeading='be calm to see the change' heading='Enrolled Classes'></SectionTitle>
+    <div className="overflow-x-auto mt-4">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className="bg-base-300">
       <tr>
         <th>#</th>
         <th>Class Name</th>
@@ -49,6 +51,7 @@ const EnrolledClasses = () => {
     </tbody>
   </table>
 </div>
+    </>
   );
 };
 

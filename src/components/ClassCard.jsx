@@ -7,6 +7,7 @@ import useGetRole from "../hooks/useGetRole";
 import useSelectedClass from "../hooks/useSelectedClass";
 
 const ClassCard = ({ cls }) => {
+  const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
   const {
     className,
@@ -15,15 +16,21 @@ const ClassCard = ({ cls }) => {
     availableSeats,
     price,
     _id,
-    enrolledStudents
   } = cls;
   const {user} = useContext(AuthContext);
   const [role] = useGetRole();
-  const [axiosSecure] = useAxiosSecure();
+  const [enrolledStudents, setEnrolledStudents] = useState();
+  const [loading, setLoading] = useState(true);
   const [fav, setFav] = useState(false)
   const [classes] = useSelectedClass();
+  axiosSecure.get(`/enrolledClasses?id=${_id}`)
+  .then((res) => {
+    const payData = res.data;
+    setEnrolledStudents(payData.length);
+    setLoading(false);
+  });
   
-  const handleClass=cls=>{
+  const handleClass=()=>{
     if(!user){
       Swal.fire({
         title: 'Do you want to login?',
@@ -60,8 +67,11 @@ const ClassCard = ({ cls }) => {
   //     return isClassEnrolled;
   //   }
   // } 
+  if(loading){
+    return <span className="loading loading-bars loading-md"></span>;
+  }
   return (
-    <div className={(enrolledStudents?.length > 0) && (availableSeats - enrolledStudents?.length == 0) ? `bg-red-300 card lg:card-side shadow-xl` : `bg-base-100 card lg:card-side shadow-xl`}>
+    <div className={(enrolledStudents > 0) && (availableSeats - enrolledStudents == 0) ? `bg-red-300 card lg:card-side shadow-xl` : `bg-base-100 card lg:card-side shadow-xl`}>
       <figure className="p-8">
         <img src={image} alt="Album" />
       </figure>
@@ -74,7 +84,7 @@ const ClassCard = ({ cls }) => {
         <div className="flex">
           <p>
             <span className="font-semibold">Available Seats: </span>
-            {availableSeats - enrolledStudents?.length}
+            {availableSeats - enrolledStudents}
           </p>
           <p>
             <span className="font-semibold">Price: </span>
@@ -83,7 +93,7 @@ const ClassCard = ({ cls }) => {
         </div>
       </div>
       <div className="flex items-center p-8">
-        <button onClick={()=>handleClass(cls)} className="btn btn-primary" disabled={(availableSeats - enrolledStudents?.length == 0) || isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
+        <button onClick={()=>handleClass()} className="btn btn-primary" disabled={(availableSeats - enrolledStudents == 0) || isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
       </div>
     </div>
   );
