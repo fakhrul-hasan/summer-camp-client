@@ -6,9 +6,8 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
-    const [axiosSecure] = useAxiosSecure();
-    const [classes, refetch] = useSelectedClass();
-    const total = classes.reduce((sum, cls)=> cls.price + sum, 0);
+  const [axiosSecure] = useAxiosSecure();
+  const [classes, refetch] = useSelectedClass();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -43,11 +42,7 @@ const SelectedClasses = () => {
               <th>Class Name</th>
               <th>Price</th>
               <th>Action</th>
-              <th>
-                <Link to='/dashboard/payment'>
-                <button className="btn btn-warning btn-sm" disabled={classes.length > 0 ? false:true}>pay ${total}</button>
-                </Link>
-              </th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -77,6 +72,16 @@ const SelectedClasses = () => {
                   >
                     delete
                   </button>
+                </td>
+                <td>
+                  <Link to={`/dashboard/payment?price=${cls.price}&id=${cls.classId}&name=${cls.className}`}>
+                    <button
+                      className="btn btn-warning btn-sm"
+                      disabled={classes.length > 0 ? false : true}
+                    >
+                      pay
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

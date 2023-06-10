@@ -82,7 +82,7 @@ import Instructors from "../Pages/Instructors";
         },
         {
           path: 'enrolledClass',
-          element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
+          element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>,
         },
         {
           path: 'payment',

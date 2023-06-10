@@ -4,7 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
-const CheckoutForm = ({ classes, price }) => {
+const CheckoutForm = ({ classId, className, price }) => {
   const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
@@ -64,10 +64,8 @@ const CheckoutForm = ({ classes, price }) => {
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
-        quantity: classes.length,
-        selectedClasses: classes.map((cls) => cls._id),
-        classes: classes.map(cls=> cls.classId),
-        classNames: classes.map((cls) => cls.className),
+        classId,
+        className,
       };
       axiosSecure.post('/payment', payment)
       .then(res=>{
