@@ -19,6 +19,7 @@ import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses";
 import AddClass from "../Pages/Dashboard/AddClass";
 import Classes from "../Pages/Classes";
 import Payment from "../Pages/Dashboard/Payment";
+import Instructors from "../Pages/Instructors";
 
   const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ import Payment from "../Pages/Dashboard/Payment";
           path: '/classes',
           element: <Classes></Classes>,
           loader: ()=>fetch('http://localhost:5000/classes')
+        },
+        {
+          path: '/instructors',
+          element: <Instructors></Instructors>,
+          loader: ()=>fetch('http://localhost:5000/instructors')
         }
       ]
     },
