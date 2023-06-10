@@ -1,4 +1,3 @@
-import React from 'react';
 import SectionTitle from '../../components/SectionTitle';
 import CheckoutForm from './CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
@@ -13,9 +12,9 @@ const Payment = () => {
     const price = parseFloat(total.toFixed(2));
     return (
         <div className='w-2/4'>
-            <SectionTitle subHeading='one step away' heading='Payment Process'></SectionTitle>
+            <SectionTitle subHeading='one step away' heading={`Provide Information for Pay $${price}`}></SectionTitle>
             <Elements stripe={stripePromise}>
-            <CheckoutForm price={price}></CheckoutForm>
+            <CheckoutForm classes={classes} price={price}></CheckoutForm>
             </Elements>
         </div>
     );
