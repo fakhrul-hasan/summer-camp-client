@@ -25,8 +25,8 @@ const DashboardClassCard = ({cls, handleStatus}) => {
         <p><span className="font-semibold">Price: </span>${price}</p>
         <p><span className="font-semibold">Status: </span>{status ? status : 'Pending'}</p>
         <div className="card-actions justify-between">
-          <button onClick={()=>handleStatus(cls, 'Approve')} className="btn btn-success" disabled={cls?.status === 'Approved' ? true:false}>Approve</button>
-          <button onClick={()=>handleStatus(cls, 'Deny')} className="btn btn-error" disabled={cls?.status === 'Denied' ? true:false}>Deny</button>
+          <button onClick={()=>handleStatus(cls, 'Approve')} className="btn btn-success" disabled={cls?.status ? true:false}>Approve</button>
+          <button onClick={()=>handleStatus(cls, 'Deny')} className="btn btn-error" disabled={cls?.status ? true:false}>Deny</button>
           <button onClick={()=>setModalOpen(true)} className="btn btn-info">Feedback</button>
         </div>
       </div>

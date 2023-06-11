@@ -20,6 +20,7 @@ import AddClass from "../Pages/Dashboard/AddClass";
 import Classes from "../Pages/Classes";
 import Payment from "../Pages/Dashboard/Payment";
 import Instructors from "../Pages/Instructors";
+import UpdateAClass from "../Pages/Dashboard/UpdateAClass";
 
   const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ import Instructors from "../Pages/Instructors";
         {
           path: 'addClass',
           element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+        },
+        {
+          path: 'updateClass',
+          element: <InstructorRoute><UpdateAClass></UpdateAClass></InstructorRoute>
         },
         {
           path: 'myClasses',

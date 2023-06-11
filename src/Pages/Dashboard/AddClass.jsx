@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import SectionTitle from "../../components/SectionTitle";
 
 const img_hosting_token = import.meta.env.VITE_Img_Upload_Token;
 
@@ -49,8 +50,8 @@ const AddClass = () => {
   };
   return (
     <div>
-      <h3 className="text-3xl">Add a Class</h3>
-      <form onSubmit={handleSubmit(onSubmit)} className="text-center">
+      <SectionTitle heading='Add a Class'></SectionTitle>
+      <form onSubmit={handleSubmit(onSubmit)} className="text-center mt-4">
         <div className="flex gap-2 w-full">
           <div className="w-1/2">
             <label className="label">
