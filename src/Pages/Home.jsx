@@ -38,8 +38,8 @@ const Home = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
-            <div className="w-1/2 space-y-8">
+          <SwiperSlide className="lg:flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white text-center lg:text-left">
+            <div className="lg:w-1/2 space-y-8">
               <h2 className="text-7xl font-semibold">
                 Divi Yoga Studio{" "}
                 <span className="font-bold">Balance, Mind & Body</span>
@@ -53,12 +53,12 @@ const Home = () => {
                 get started
               </button>
             </div>
-            <div className="w-1/2">
-              <img src={yoga1} alt="" className="h-screen" />
+            <div className="lg:w-1/2">
+              <img src={yoga1} alt="" className="h-72 lg:h-screen mt-4 lg:mt-0" />
             </div>
           </SwiperSlide>
-          <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
-            <div className="w-1/2 space-y-8">
+          <SwiperSlide className="lg:flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white text-center lg:text-left">
+            <div className="lg:w-1/2 space-y-8">
               <h2 className="text-7xl font-semibold">
                 Divi Yoga Studio{" "}
                 <span className="font-bold">Balance, Mind & Body</span>
@@ -72,8 +72,8 @@ const Home = () => {
                 get started
               </button>
             </div>
-            <div className="w-1/2">
-              <img src={yoga2} alt="" className="h-screen" />
+            <div className="lg:w-1/2">
+              <img src={yoga2} alt="" className="h-72 lg:h-screen mt-4 lg:mt-0" />
             </div>
           </SwiperSlide>
         </Swiper>

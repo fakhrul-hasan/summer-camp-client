@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./Shared/SocialLogin";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
     const {login} = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
     const {
         register,
         handleSubmit,
@@ -59,12 +61,13 @@ const Login = () => {
                 <span className="text-red-600">Email is required</span>
               )}
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
+              <FaEye onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-12 h-4 w-4 cursor-pointer"/>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="password"
                 {...register("password", { required: true })}
                 className="input input-bordered"

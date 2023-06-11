@@ -2,8 +2,8 @@ import classFooterImg from "../assets/classFooterImg.png";
 
 const AboutUsSection = () => {
   return (
-    <div className="p-16 bg-gradient-to-r from-[#f7ce68] to-[#fbab7e] text-white gap-8 h-screen flex justify-center items-center">
-      <div className="w-1/2 space-y-8">
+    <div className="p-16 bg-gradient-to-r from-[#f7ce68] to-[#fbab7e] text-white gap-8 lg:h-screen flex flex-col-reverse lg:flex-row justify-center items-center">
+      <div className="lg:w-1/2 space-y-8">
         <h3 className="text-xl uppercase text-[#c69c59]">Why choose us</h3>
         <h2 className="text-4xl font-bold">
           Customized Instruction For Every Student
@@ -19,7 +19,7 @@ const AboutUsSection = () => {
           join us now
         </button>
       </div>
-      <div className="w-1/2 object-contain h-full">
+      <div className="lg:w-1/2 object-contain h-full">
         <img src={classFooterImg} alt="" className="h-full" />
       </div>
     </div>

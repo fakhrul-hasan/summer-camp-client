@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "./Shared/SocialLogin";
+import { FaEye } from "react-icons/fa";
 
 const SignUp = () => {
   const location = useLocation();
   const from = location.state?.state?.from?.pathname || '/';
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -93,12 +95,13 @@ const SignUp = () => {
                 <span className="text-red-600">Email is required</span>
               )}
             </div>
-            <div className="form-control">
+            <div className="form-control relative">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
+              <FaEye onClick={()=>setShowPassword(!showPassword)} className="absolute right-4 bottom-52 h-4 w-4 cursor-pointer"/>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 {...register("password", {
                   required: true,
                   minLength: 6,
@@ -130,7 +133,7 @@ const SignUp = () => {
                 <span className="label-text">Confirm Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 {...register("confirmPassword", {
                   required: true,
                   validate: (value) => {

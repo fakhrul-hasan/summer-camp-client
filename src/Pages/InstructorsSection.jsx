@@ -18,9 +18,9 @@ const InstructorsSection = () => {
         return <span className="loading loading-bars loading-md"></span>;
       }
     return (
-        <section className='p-16'>
+        <section className='p-4 lg:p-16'>
             <SectionTitle subHeading='expert instructors' heading='Meet Our Team'></SectionTitle>
-            <div className='grid grid-cols-3 gap-8 mt-8'>
+            <div className='grid lg:grid-cols-3 gap-8 mt-8'>
                 {
                     instructors.map(instructor=><InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>)
                 }

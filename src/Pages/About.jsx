@@ -8,8 +8,8 @@ const About = () => {
         loop: 3
     })
     return (
-        <div className='flex p-16 gap-8 w-full h-screen'>
-            <div className='w-1/2 space-y-8'>
+        <div className='flex flex-col-reverse lg:flex-row p-16 gap-8 w-full h-screen mt-80 lg:mt-0 mb-20'>
+            <div className='lg:w-1/2 space-y-8'>
                 <h5 className='text-gray-300 text-lg uppercase font-semibold'>about us</h5>
                 <h3 className='text-[#25efcb] text-4xl font-bold'>{text}<Cursor cursorColor='#25efcb'/></h3>
                 <p className='text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquam necessitatibus fugiat alias iure cum ullam, facere sunt rem tempora ad magni voluptatum! Quos possimus sapiente necessitatibus delectus a numquam sequi, magnam accusantium esse quam?</p>
@@ -23,8 +23,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div data-aos="fade-right" data-aos-duration="1000" className='w-1/2'>
-                <img src={img} alt="" />
+            <div data-aos="fade-right" data-aos-duration="1000" className='lg:w-1/2'>
+                <img src={img} alt="" className='' />
             </div>
         </div>
     );
