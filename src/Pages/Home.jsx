@@ -8,6 +8,8 @@ import yoga2 from '../../src/assets/yoga02.png';
 import { Autoplay, Pagination, Navigation } from "swiper";
 import About from "./About";
 import ClassSection from "./ClassSection";
+import AboutUsSection from "./AboutUsSection";
+import FeaturesSection from "./FeaturesSection";
 
 const Home = () => {
     return (
@@ -51,6 +53,8 @@ const Home = () => {
       <About></About>
         {/* class section */}
         <ClassSection></ClassSection>
+        <AboutUsSection></AboutUsSection>
+        <FeaturesSection></FeaturesSection>
         </div>
     );
 };
