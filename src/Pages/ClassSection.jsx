@@ -9,7 +9,7 @@ const ClassSection = () => {
     fetch('http://localhost:5000/classes')
     .then(res=>res.json())
     .then(data=>{
-      setClasses(data);
+      setClasses(data.slice(0, 6));
       setClassLoading(false);
     });
   },[])
@@ -17,20 +17,14 @@ const ClassSection = () => {
     return <span className="loading loading-bars loading-md"></span>
   }
   return (
-    <div className="bg-[#fafbfc] p-16">
-      {/* <h5 className="text-gray-300 text-lg uppercase font-semibold text-center">
-        our classes
-      </h5>
-      <h3 className="text-[#44d89e] text-4xl font-bold text-center">
-        Join A Class Today!
-      </h3> */}
+    <section className="bg-[#fafbfc] p-16">
       <SectionTitle subHeading='our classes' heading='Join A Class Today!'></SectionTitle>
-      <div>
+      <div className="grid grid-cols-3 gap-4 mt-8">
         {
           classes.map(cls=><PopularClassCard key={cls._id} cls={cls}></PopularClassCard>)
         }
       </div>
-    </div>
+    </section>
   );
 };
 

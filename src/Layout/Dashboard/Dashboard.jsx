@@ -1,4 +1,5 @@
-import React from "react";
+import { MdHotelClass, MdClass, MdAccountBalanceWallet } from "react-icons/md";
+import { SiCoursera } from "react-icons/si";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { SiGoogleclassroom } from "react-icons/si";
 import { FaUsersCog, FaHome } from "react-icons/fa";
@@ -41,19 +42,21 @@ const Dashboard = () => {
           )}
           {role === "Instructor" && (
             <>
-                <li className="text-lg font-semibold"><NavLink to="/dashboard/addClass">Add a Class</NavLink></li>
-                <li className="text-lg font-semibold"><NavLink to="/dashboard/myClasses">My Classes</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/addClass"><SiCoursera/>Add a Class</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/myClasses"><SiGoogleclassroom/>My Classes</NavLink></li>
             </>
           )}
           {role !== "Instructor" && role !== "Admin" && (
             <>
-                <li className="text-lg font-semibold"><NavLink to="/dashboard/selectedClass">My Selected Classes</NavLink></li>
-                <li className="text-lg font-semibold"><NavLink to="/dashboard/enrolledClass">My Enrolled Classes</NavLink></li>
-                <li className="text-lg font-semibold"><NavLink to="/dashboard/paymentHistory">Payment History</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/selectedClass"><MdHotelClass/>My Selected Classes</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/enrolledClass"><MdClass/>My Enrolled Classes</NavLink></li>
+                <li className="text-lg font-semibold"><NavLink to="/dashboard/paymentHistory"><MdAccountBalanceWallet/>Payment History</NavLink></li>
             </>
           )}
           <div className="divider"></div>
             <li className="text-lg font-semibold"><NavLink to="/"><FaHome/>Home</NavLink></li>
+            <li className="text-lg font-semibold"><NavLink to="/instructors"><FaHome/>Instructors</NavLink></li>
+            <li className="text-lg font-semibold"><NavLink to="/classes"><FaHome/>Classes</NavLink></li>
         </ul>
       </div>
     </div>

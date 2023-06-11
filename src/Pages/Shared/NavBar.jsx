@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useGetRole from "../../hooks/useGetRole";
 
@@ -21,9 +21,9 @@ const NavBar = () => {
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
-      <Link className="me-4" to='/'>Home</Link>
-      <Link className="me-4" to='/instructors'>Instructors</Link>
-      <Link className="me-4" to='/classes'>Classes</Link>
+      <NavLink className="me-4" to='/'>Home</NavLink>
+      <NavLink className="me-4" to='/instructors'>Instructors</NavLink>
+      <NavLink className="me-4" to='/classes'>Classes</NavLink>
       {
         user && <Link className="me-4" to='dashboard'>Dashboard</Link>
       }
