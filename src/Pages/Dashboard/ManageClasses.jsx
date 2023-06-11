@@ -1,4 +1,3 @@
-import React from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import DashboardClassCard from "../../components/DashboardClassCard";
@@ -13,27 +12,53 @@ const ManageClasses = () => {
       return res.data;
     },
   });
+
+  // const [showModal, setShowModal] = useState(false);
+  // const [feedback, setFeedback] = useState('');
+  // const [feedbackClass, setFeedbackClass] = useState();
+
+  // const handleOpenModal = (cls) => {
+  //   setShowModal(true);
+  //   setFeedbackClass(cls);
+  // };
+
+  // const handleCloseModal = () => {
+  //   setShowModal(false);
+  // };
+
   const handleStatus = (cls, status) => {
-    Swal.fire({
-      title: `Are you sure, You want to ${(status.toLowerCase())} this?`,
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: `Yes, ${(status.toLowerCase())} it!`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure
-          .patch(`/addedClasses/${cls._id}?status=${status}`)
-          .then((data) => {
-            if (data.data.modifiedCount > 0) {
-              refetch();
-              Swal.fire("Status Changed!", "Class has been published.", "success");
-            }
-          });
-      }
-    });
+    if(status === 'Approve' || status === 'Deny'){
+      Swal.fire({
+        title: `Are you sure, You want to ${status.toLowerCase()} this?`,
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: `Yes, ${status.toLowerCase()} it!`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axiosSecure
+            .patch(`/addedClasses/${cls._id}?status=${status}`)
+            .then((data) => {
+              console.log(data);
+              if (data.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire(
+                  "Status Changed!",
+                  "Class has been published.",
+                  "success"
+                );
+              }
+            });
+        }
+      });
+    }else{
+      axiosSecure
+      .patch(`/addedClasses/${cls._id}?status=${status}`)
+      .then((data=>console.log(data)))
+    }
+    
   };
   return (
     <div>
@@ -49,6 +74,7 @@ const ManageClasses = () => {
           ></DashboardClassCard>
         ))}
       </div>
+      
     </div>
   );
 };
