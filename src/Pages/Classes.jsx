@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../components/SectionTitle";
-import ClassCard from "../components/ClassCard";
-import useSelectedClass from "../hooks/useSelectedClass";
+import ClassCard from "../components/ClassCard/ClassCard";
 
 const Classes = () => {
   const classes = useLoaderData();

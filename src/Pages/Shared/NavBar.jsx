@@ -17,15 +17,15 @@ const NavBar = () => {
     return (
       <div className="navbar bg-base-300">
   <div className="flex-1">
-    <Link to='/'><h3>Spiritual Bliss</h3></Link>
+    <Link to='/'><img src="https://www.compassioninaction.info/wp-content/uploads/2015/10/yoga-logo.png" alt="" className="h-20 w-32"/></Link>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
-      <NavLink className="me-4" to='/'>Home</NavLink>
-      <NavLink className="me-4" to='/instructors'>Instructors</NavLink>
-      <NavLink className="me-4" to='/classes'>Classes</NavLink>
+      <NavLink className="me-4 font-semibold" to='/'>Home</NavLink>
+      <NavLink className="me-4 font-semibold" to='/instructors'>Instructors</NavLink>
+      <NavLink className="me-4 font-semibold" to='/classes'>Classes</NavLink>
       {
-        user && <Link className="me-4" to='dashboard'>Dashboard</Link>
+        user && <Link className="me-4 font-semibold" to='dashboard'>Dashboard</Link>
       }
     </div>
     {

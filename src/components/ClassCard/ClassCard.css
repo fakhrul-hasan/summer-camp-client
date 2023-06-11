@@ -1,0 +1,8 @@
+.classCard{
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+.classCard:hover{
+    transform: scale(1.05);
+    background: linear-gradient(to left, #25efcb, #1bb3eb);
+}

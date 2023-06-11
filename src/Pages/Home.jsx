@@ -2,61 +2,90 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import yoga1 from '../../src/assets/yoga01.png';
-import yoga2 from '../../src/assets/yoga02.png';
+import yoga1 from "../../src/assets/yoga01.png";
+import yoga2 from "../../src/assets/yoga02.png";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 import About from "./About";
 import ClassSection from "./ClassSection";
 import AboutUsSection from "./AboutUsSection";
 import FeaturesSection from "./FeaturesSection";
+import InstructorsSection from "./InstructorsSection";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Home = () => {
-    return (
-        <div>
-            <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+    useEffect(()=>{
+        Aos.init();
+    },[])
+  return (
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
       >
-        <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
             <div className="w-1/2 space-y-8">
-                <h2 className="text-7xl font-semibold">Divi Yoga Studio <span className="font-bold">Balance, Mind & Body</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia adipisci doloremque provident natus numquam, modi magni ab unde, illum cum dignissimos! Molestiae consequuntur necessitatibus ab.</p>
-                <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">get started</button>
+              <h2 className="text-7xl font-semibold">
+                Divi Yoga Studio{" "}
+                <span className="font-bold">Balance, Mind & Body</span>
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+                adipisci doloremque provident natus numquam, modi magni ab unde,
+                illum cum dignissimos! Molestiae consequuntur necessitatibus ab.
+              </p>
+              <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">
+                get started
+              </button>
             </div>
             <div className="w-1/2">
-                <img src={yoga1} alt="" className="h-screen" />
+              <img src={yoga1} alt="" className="h-screen" />
             </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center gap-8 w-full p-16 bg-gradient-to-r from-[#25efcb] to-[#1bb3eb] text-white">
             <div className="w-1/2 space-y-8">
-                <h2 className="text-7xl font-semibold">Divi Yoga Studio <span className="font-bold">Balance, Mind & Body</span></h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia adipisci doloremque provident natus numquam, modi magni ab unde, illum cum dignissimos! Molestiae consequuntur necessitatibus ab.</p>
-                <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">get started</button>
+              <h2 className="text-7xl font-semibold">
+                Divi Yoga Studio{" "}
+                <span className="font-bold">Balance, Mind & Body</span>
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+                adipisci doloremque provident natus numquam, modi magni ab unde,
+                illum cum dignissimos! Molestiae consequuntur necessitatibus ab.
+              </p>
+              <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">
+                get started
+              </button>
             </div>
             <div className="w-1/2">
-                <img src={yoga2} alt="" className="h-screen" />
+              <img src={yoga2} alt="" className="h-screen" />
             </div>
-        </SwiperSlide>
-      </Swiper>
-      {/* about section */}
-      <About></About>
+          </SwiperSlide>
+        </Swiper>
+        {/* about section */}
+        <About></About>
         {/* class section */}
         <ClassSection></ClassSection>
         <AboutUsSection></AboutUsSection>
         <FeaturesSection></FeaturesSection>
-        </div>
-    );
+        <InstructorsSection></InstructorsSection>
+      </div>
+  );
 };
 
 export default Home;

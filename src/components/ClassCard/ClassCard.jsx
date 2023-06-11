@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../Providers/AuthProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../hooks/useAxiosSecure";
-import useGetRole from "../hooks/useGetRole";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useGetRole from "../../hooks/useGetRole";
+import './ClassCard.css';
 
 const ClassCard = ({ cls }) => {
   const [axiosSecure] = useAxiosSecure();
@@ -53,17 +54,8 @@ const ClassCard = ({ cls }) => {
     })
   }
 
-  // const isClassEnrolled ={
-  //   if(enrolledStudents){
-  //     const isClassEnrolled=()=>{
-  //       const existingClass = enrolledStudents?.find(user?.email);
-  //       return existingClass;
-  //     }
-  //     return isClassEnrolled;
-  //   }
-  // }
   return (
-    <div className={(enrolledStudents > 0) && (availableSeats - enrolledStudents == 0) ? `bg-red-300 card lg:card-side shadow-xl` : `bg-base-100 card lg:card-side shadow-xl`}>
+    <div className={(availableSeats == 0) ? `bg-red-300 card lg:card-side shadow-xl classCard` : `bg-base-100 card lg:card-side shadow-xl classCard`}>
       <figure className="p-8">
         <img src={image} alt="Album" />
       </figure>
@@ -85,7 +77,7 @@ const ClassCard = ({ cls }) => {
         </div>
       </div>
       <div className="flex items-center p-8">
-        <button onClick={()=>handleClass()} className="btn btn-primary" disabled={(availableSeats == 0) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
+        <button onClick={()=>handleClass()} className="btn btn-neutral" disabled={(availableSeats == 0) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
       </div>
     </div>
   );

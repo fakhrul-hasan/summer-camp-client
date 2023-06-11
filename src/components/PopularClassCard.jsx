@@ -1,14 +1,18 @@
-import React from 'react';
+import Card from 'react-animated-3d-card';
 
 const PopularClassCard = ({cls}) => {
-    const {className, image, instructorName, instructorEmail, availableSeats, price} = cls;
+    const {className, image} = cls;
     return (
-        <div className="card w-80 bg-base-100 shadow-xl">
+        <Card cursorPointer={false} shineStrength={0.75}
+        style={{
+          cursor: "pointer"
+        }}
+        className="card w-80 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
             src={image}
             alt="Shoes"
-            className="rounded-xl"
+            className="rounded-xl mx-auto"
           />
         </figure>
         <div className="card-body items-center text-center">
@@ -17,7 +21,7 @@ const PopularClassCard = ({cls}) => {
           <div className="card-actions">
           </div>
         </div>
-      </div>
+      </Card>
     );
 };
 
