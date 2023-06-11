@@ -27,7 +27,7 @@ const ClassSection = () => {
       <SectionTitle subHeading='our classes' heading='Join A Class Today!'></SectionTitle>
       <div>
         {
-          // classes.map(cls=><PopularClassCard key={cls._id} cls={cls}></PopularClassCard>)
+          classes.map(cls=><PopularClassCard key={cls._id} cls={cls}></PopularClassCard>)
         }
       </div>
     </div>
