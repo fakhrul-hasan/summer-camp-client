@@ -21,6 +21,7 @@ import Classes from "../Pages/Classes";
 import Payment from "../Pages/Dashboard/Payment";
 import Instructors from "../Pages/Instructors";
 import UpdateAClass from "../Pages/Dashboard/UpdateAClass";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 
   const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ import UpdateAClass from "../Pages/Dashboard/UpdateAClass";
         {
           path: 'enrolledClass',
           element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>,
+        },
+        {
+          path: 'paymentHistory',
+          element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>,
         },
         {
           path: 'payment',

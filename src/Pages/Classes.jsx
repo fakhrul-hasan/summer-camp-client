@@ -1,9 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../components/SectionTitle";
 import ClassCard from "../components/ClassCard";
+import useSelectedClass from "../hooks/useSelectedClass";
 
 const Classes = () => {
   const classes = useLoaderData();
+  // const [selectedClasses] = useSelectedClass();
+  // const isClassSelected=id=>{
+  //   const existingClass = selectedClasses.find(c=> c.classId == id);
+  //   return existingClass;
+  // }
 
   return (
     <>

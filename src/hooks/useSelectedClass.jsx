@@ -8,7 +8,7 @@ const useSelectedClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery({
     queryKey: ["classes", user?.email],
-    enabled: !loading && Boolean(user?.email),
+    enabled: !!localStorage.getItem('access-token'),
     queryFn: async () => {
       const res = await axiosSecure.get(
         `/selectedClasses?email=${user?.email}`

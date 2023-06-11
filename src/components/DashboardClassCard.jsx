@@ -8,7 +8,6 @@ const DashboardClassCard = ({cls, handleStatus}) => {
   const handleTextareaChange = (event) => {
     setFeedbackText(event.target.value);
   };
-  const enrolledStudents = cls?.enrolledStudents?.length || 0;
 
   return (
     <div className="card card-side bg-base-100 shadow-xl">
@@ -22,7 +21,7 @@ const DashboardClassCard = ({cls, handleStatus}) => {
         <h2 className="card-title">{className}</h2>
         <p><span className="font-semibold">Instructor Name: </span>{instructorName}</p>
         <p><span className="font-semibold">Instructor Email: </span>{instructorEmail}</p>
-        <p><span className="font-semibold">Seats: </span>{availableSeats - enrolledStudents}</p>
+        <p><span className="font-semibold">Seats: </span>{availableSeats}</p>
         <p><span className="font-semibold">Price: </span>${price}</p>
         <p><span className="font-semibold">Status: </span>{status ? status : 'Pending'}</p>
         <div className="card-actions justify-between">

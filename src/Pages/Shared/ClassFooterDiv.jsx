@@ -9,8 +9,8 @@ const ClassFooterDiv = () => {
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio accusamus deleniti modi fugit, vero officiis voluptatibus aut harum odit consequatur culpa laborum deserunt hic, atque delectus tempora officia dolore natus a sequi tenetur quo eligendi! Dicta quisquam voluptates assumenda quod excepturi facere. Iste, veniam rem?</p>
           <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">become a member</button>
         </div>
-        <div className="w-1/2">
-        <img src={classFooterImg} alt="" />
+        <div className="w-1/2 object-contain">
+        <img src={classFooterImg} alt="" className='' />
         </div>
       </div>
     );

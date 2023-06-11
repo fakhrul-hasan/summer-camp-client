@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useGetRole from "../hooks/useGetRole";
-import useSelectedClass from "../hooks/useSelectedClass";
 
 const ClassCard = ({ cls }) => {
   const [axiosSecure] = useAxiosSecure();
@@ -21,7 +20,7 @@ const ClassCard = ({ cls }) => {
   const {user} = useContext(AuthContext);
   const [role] = useGetRole();
   const [fav, setFav] = useState(false)
-  const [classes] = useSelectedClass();
+  
   // axiosSecure.get(`/enrolledClasses?id=${_id}`)
   // .then((res) => {
   //   const payData = res.data;
@@ -53,10 +52,7 @@ const ClassCard = ({ cls }) => {
       }
     })
   }
-  const isClassSelected=id=>{
-    const existingClass = classes.find(c=> c.classId == id);
-    return existingClass;
-  }
+
   // const isClassEnrolled ={
   //   if(enrolledStudents){
   //     const isClassEnrolled=()=>{
@@ -80,7 +76,7 @@ const ClassCard = ({ cls }) => {
         <div className="flex">
           <p>
             <span className="font-semibold">Available Seats: </span>
-            {availableSeats - enrolledStudents}
+            {availableSeats}
           </p>
           <p>
             <span className="font-semibold">Price: </span>
@@ -89,7 +85,7 @@ const ClassCard = ({ cls }) => {
         </div>
       </div>
       <div className="flex items-center p-8">
-        <button onClick={()=>handleClass()} className="btn btn-primary" disabled={(availableSeats - enrolledStudents == 0) || isClassSelected(cls._id) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
+        <button onClick={()=>handleClass()} className="btn btn-primary" disabled={(availableSeats == 0) || fav || role === 'Instructor' || role === 'Admin' ? true:false}>Select</button>
       </div>
     </div>
   );
