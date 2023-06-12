@@ -7,7 +7,7 @@ const InstructorsSection = () => {
     const [instructors, setInstructors] = useState();
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructors')
+        fetch('https://summer-camp-server-inky.vercel.app/instructors')
         .then(res=>res.json())
         .then(data=>{
             setInstructors(data.slice(0,6));

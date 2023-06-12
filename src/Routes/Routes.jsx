@@ -44,12 +44,12 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
         {
           path: '/classes',
           element: <Classes></Classes>,
-          loader: ()=>fetch('http://localhost:5000/classes')
+          loader: ()=>fetch('https://summer-camp-server-inky.vercel.app/classes')
         },
         {
           path: '/instructors',
           element: <Instructors></Instructors>,
-          loader: ()=>fetch('http://localhost:5000/instructors')
+          loader: ()=>fetch('https://summer-camp-server-inky.vercel.app/instructors')
         }
       ]
     },

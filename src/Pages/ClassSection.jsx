@@ -6,7 +6,7 @@ const ClassSection = () => {
   const [classes, setClasses] = useState();
   const [classLoading, setClassLoading] = useState(true);
   useEffect(()=>{
-    fetch('http://localhost:5000/classes')
+    fetch('https://summer-camp-server-inky.vercel.app/classes')
     .then(res=>res.json())
     .then(data=>{
       setClasses(data.slice(0, 6));
