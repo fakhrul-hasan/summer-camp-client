@@ -13,18 +13,22 @@ import FeaturesSection from "./FeaturesSection";
 import InstructorsSection from "./InstructorsSection";
 import { useEffect } from "react";
 import Aos from "aos";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     useEffect(()=>{
         Aos.init();
     },[])
   return (
-      <div
-        data-aos="zoom-in"
+      <div>
+        <Helmet>
+        <title>Spiritual Bliss | Home</title>
+      </Helmet>
+      <div data-aos="zoom-in"
         data-aos-duration="500"
-        data-aos-easing="ease-in-out"
-      >
-        <Swiper
+        data-aos-easing="ease-in-out">
+      <Swiper
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -49,9 +53,9 @@ const Home = () => {
                 adipisci doloremque provident natus numquam, modi magni ab unde,
                 illum cum dignissimos! Molestiae consequuntur necessitatibus ab.
               </p>
-              <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">
+              <Link to='/classes'><button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl mt-8">
                 get started
-              </button>
+              </button></Link>
             </div>
             <div className="lg:w-1/2">
               <img src={yoga1} alt="" className="h-72 lg:h-screen mt-4 lg:mt-0" />
@@ -68,15 +72,16 @@ const Home = () => {
                 adipisci doloremque provident natus numquam, modi magni ab unde,
                 illum cum dignissimos! Molestiae consequuntur necessitatibus ab.
               </p>
-              <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">
+              <Link to='/classes'><button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl mt-8">
                 get started
-              </button>
+              </button></Link>
             </div>
             <div className="lg:w-1/2">
               <img src={yoga2} alt="" className="h-72 lg:h-screen mt-4 lg:mt-0" />
             </div>
           </SwiperSlide>
         </Swiper>
+      </div>
         {/* about section */}
         <About></About>
         {/* class section */}

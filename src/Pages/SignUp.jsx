@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -15,7 +15,6 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     getValues,
     formState: { errors },

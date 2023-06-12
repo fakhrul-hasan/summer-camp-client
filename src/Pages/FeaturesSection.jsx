@@ -21,8 +21,8 @@ const FeaturesSection = () => {
         heading="The Best of Yoga"
       ></SectionTitle>
       <div className="grid lg:grid-cols-3 gap-20 mt-8">
-        <div data-aos="fade-right" data-aos-duration="1000">
-          <div className="text-center flex flex-col h-48 items-center">
+        <div>
+          <div data-aos="fade-right" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img1} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Re-Engergize</h4>
             <p>
@@ -30,7 +30,7 @@ const FeaturesSection = () => {
               Brady Bunch
             </p>
           </div>
-          <div className="text-center flex flex-col h-48 items-center">
+          <div data-aos="fade-right" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img2} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Strength Building</h4>
             <p>
@@ -38,7 +38,7 @@ const FeaturesSection = () => {
               Brady Bunch
             </p>
           </div>
-          <div className="text-center flex flex-col h-48 items-center">
+          <div data-aos="fade-right" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img3} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Stress Relief</h4>
             <p>
@@ -49,10 +49,10 @@ const FeaturesSection = () => {
         </div>
         <div>
           {" "}
-          <img src={img7} alt="" className="h-screen mx-auto"/>
+          <img data-aos="fade-up" data-aos-duration="1000" src={img7} alt="" className="h-screen mx-auto"/>
         </div>
-        <div data-aos="fade-left" data-aos-duration="1000">
-        <div className="text-center flex flex-col h-48 items-center">
+        <div>
+        <div data-aos="fade-left" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img4} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Relax & Refresh</h4>
             <p>
@@ -60,7 +60,7 @@ const FeaturesSection = () => {
               Brady Bunch
             </p>
           </div>
-        <div className="text-center flex flex-col h-48 items-center">
+        <div data-aos="fade-left" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img5} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Beauty of Body</h4>
             <p>
@@ -68,7 +68,7 @@ const FeaturesSection = () => {
               Brady Bunch
             </p>
           </div>
-        <div className="text-center flex flex-col h-48 items-center">
+        <div data-aos="fade-left" data-aos-duration="1000" className="text-center flex flex-col h-48 items-center">
             <img src={img6} alt="" className="h-20 w-20"/>
             <h4 className="text-2xl font-bold text-gray-500">Mind & Soul</h4>
             <p>

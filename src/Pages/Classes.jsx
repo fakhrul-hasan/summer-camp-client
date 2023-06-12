@@ -1,17 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../components/SectionTitle";
 import ClassCard from "../components/ClassCard/ClassCard";
+import { Helmet } from "react-helmet";
 
 const Classes = () => {
   const classes = useLoaderData();
-  // const [selectedClasses] = useSelectedClass();
-  // const isClassSelected=id=>{
-  //   const existingClass = selectedClasses.find(c=> c.classId == id);
-  //   return existingClass;
-  // }
-
   return (
     <>
+      <Helmet>
+        <title>Spiritual Bliss | All Classes</title>
+      </Helmet>
       <div className="footer p-16 bg-gradient-to-r from-[#1bb3eb] to-[#25efcb] text-white gap-0">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold">Yoga Classes</h2>

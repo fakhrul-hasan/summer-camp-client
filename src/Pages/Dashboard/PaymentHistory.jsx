@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import SectionTitle from '../../components/SectionTitle';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const PaymentHistory = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -19,6 +20,9 @@ const PaymentHistory = () => {
       }
     return (
         <div>
+          <Helmet>
+        <title>Dashboard | Payment History</title>
+      </Helmet>
             <SectionTitle heading='Payment History'/>
             <div className="overflow-x-auto mt-4">
   <table className="table">

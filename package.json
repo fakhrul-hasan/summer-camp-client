@@ -21,11 +21,13 @@
     "react": "^18.2.0",
     "react-animated-3d-card": "^1.0.2",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.12.0",
     "react-simple-typewriter": "^5.0.1",
+    "recharts": "^2.6.2",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.11",
     "swiper": "^9.3.2"

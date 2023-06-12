@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTitle from "../../components/SectionTitle";
+import { Helmet } from "react-helmet";
 
 const img_hosting_token = import.meta.env.VITE_Img_Upload_Token;
 
@@ -50,6 +51,9 @@ const AddClass = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Add Class</title>
+      </Helmet>
       <SectionTitle heading='Add a Class'></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)} className="text-center mt-4">
         <div className="flex gap-2 w-full">

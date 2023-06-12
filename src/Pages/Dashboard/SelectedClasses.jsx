@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const SelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -30,6 +31,9 @@ const SelectedClasses = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Selected Classes</title>
+      </Helmet>
       <SectionTitle
         subHeading="your flexibility"
         heading="Selected Classes"

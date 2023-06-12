@@ -62,6 +62,9 @@ const ManageClasses = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Manage Classes</title>
+      </Helmet>
       <h2 className="text-4xl font-bold text-[#44d89e] text-center mb-4">
         All Classes: {classes.length}
       </h2>

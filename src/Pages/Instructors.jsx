@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router-dom";
-import SectionTitle from "../components/SectionTitle";
 import InstructorCard from "../components/InstructorCard";
+import { Helmet } from "react-helmet";
 
 const Instructors = () => {
     const instructors = useLoaderData();
   return (
     <>
+    <Helmet>
+        <title>Spiritual Bliss | Our Teams</title>
+      </Helmet>
       <div className="footer p-16 bg-gradient-to-r from-[#1bb3eb] to-[#25efcb] text-white gap-0">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold">Meet Our Instructors</h2>

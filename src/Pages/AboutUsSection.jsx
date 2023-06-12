@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classFooterImg from "../assets/classFooterImg.png";
 
 const AboutUsSection = () => {
@@ -15,9 +16,9 @@ const AboutUsSection = () => {
           officia dolore natus a sequi tenetur quo eligendi! Dicta quisquam
           voluptates assumenda quod excepturi facere. Iste, veniam rem?
         </p>
-        <button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl">
+        <Link to='/classes'><button className="uppercase bg-white text-[#25efcb] px-8 py-4 text-lg font-semibold rounded-3xl mt-8">
           join us now
-        </button>
+        </button></Link>
       </div>
       <div className="lg:w-1/2 object-contain h-full">
         <img src={classFooterImg} alt="" className="h-full" />

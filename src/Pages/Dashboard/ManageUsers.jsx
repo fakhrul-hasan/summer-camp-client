@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SectionTitle from '../../components/SectionTitle';
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -32,7 +33,10 @@ const ManageUsers = () => {
     }
     return (
         <div>
-            <h2 className='text-4xl font-bold text-[#44d89e] text-center mb-4'>All Users</h2>
+          <Helmet>
+        <title>Dashboard | Manage Users</title>
+      </Helmet>
+            <SectionTitle heading='All Users'></SectionTitle>
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}

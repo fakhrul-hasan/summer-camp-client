@@ -1,13 +1,15 @@
 import { MdHotelClass, MdClass, MdAccountBalanceWallet } from "react-icons/md";
 import { SiCoursera } from "react-icons/si";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { SiGoogleclassroom } from "react-icons/si";
 import { FaUsersCog, FaHome } from "react-icons/fa";
 import useGetRole from "../../hooks/useGetRole";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Dashboard = () => {
+  const {user} = useContext(AuthContext);
   const [role] = useGetRole();
-  const instructor = false;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -23,6 +25,8 @@ const Dashboard = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-gradient-to-t from-[#25efcb] to-[#1bb3eb] text-white">
+          <li><span className="rounded-full mx-auto"><img src={user?.photoURL} alt="" className="rounded-full h-20 w-20"/></span></li>
+          <li className="font-bold text-xl mx-auto">{user?.displayName}</li>
           {/* Sidebar content here */}
           {role === "Admin" && (
             <>

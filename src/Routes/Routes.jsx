@@ -7,7 +7,6 @@ import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Dashboard from "../Layout/Dashboard/Dashboard";
-import InstructorHome from "../Pages/Dashboard/InstructorHome";
 import ManageClasses from "../Pages/Dashboard/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/ManageUsers";
 import AdminRoute from "./AdminRoute";
@@ -22,6 +21,7 @@ import Payment from "../Pages/Dashboard/Payment";
 import Instructors from "../Pages/Instructors";
 import UpdateAClass from "../Pages/Dashboard/UpdateAClass";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
   const router = createBrowserRouter([
     {
@@ -60,7 +60,7 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
       children:[
         {
           path: '/dashboard',
-          element: <InstructorHome></InstructorHome>
+          element: <DashboardHome></DashboardHome>
         },
         {
           path: 'addClass',

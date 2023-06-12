@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const MyClasses = () => {
     const {user} = useContext(AuthContext);
@@ -17,6 +18,9 @@ const MyClasses = () => {
     })
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | My Classes</title>
+      </Helmet>
         <SectionTitle heading='My Classes'></SectionTitle>
       <div className="overflow-x-auto mt-4">
         <table className="table">

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SectionTitle from "../../components/SectionTitle";
+import { Helmet } from "react-helmet";
 const EnrolledClasses = () => {
   const [data, setData] = useState();
   const [axiosSecure] = useAxiosSecure();
@@ -17,6 +18,9 @@ const EnrolledClasses = () => {
     }
   return (
     <>
+    <Helmet>
+        <title>Dashboard | Enrolled Classes</title>
+      </Helmet>
     <SectionTitle subHeading='be calm to see the change' heading='Enrolled Classes'></SectionTitle>
     <div className="overflow-x-auto mt-4">
   <table className="table">

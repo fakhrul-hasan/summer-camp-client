@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTitle from "../../components/SectionTitle";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const img_hosting_token = import.meta.env.VITE_Img_Upload_Token;
 
@@ -45,6 +46,9 @@ const UpdateAClass = () => {
       };
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Update Class</title>
+      </Helmet>
       <SectionTitle subHeading='' heading="Update Class"></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)} className="text-center mt-4">
         <div className="w-full">
