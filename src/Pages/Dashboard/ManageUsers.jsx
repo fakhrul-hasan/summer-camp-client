@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../Providers/AuthProvider';
 import SectionTitle from '../../components/SectionTitle';
+import { Helmet } from 'react-helmet';
 
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();

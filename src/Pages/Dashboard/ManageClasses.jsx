@@ -2,6 +2,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import DashboardClassCard from "../../components/DashboardClassCard";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
